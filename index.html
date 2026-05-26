@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Video LTC Generator - LTC timecode from iPhone to camera</title>
+    <meta
+      name="description"
+      content="Video LTC Generator turns an iPhone into a SMPTE LTC source for cameras and recorders. Supports 23.98, 24, 25, 29.97 DF, 29.97, and 30 fps."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Video LTC Generator">
+        <img src="assets/app-icon.png" alt="">
+        <span>Video LTC Generator</span>
+      </a>
+      <nav class="nav-links" aria-label="Site sections">
+        <a href="#workflow">Connection</a>
+        <a href="#ltc">LTC</a>
+        <a href="#df">DF/NDF</a>
+        <a href="#faq">FAQ</a>
+        <a href="#support">Support</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <img class="hero-bg" src="assets/app-running.png" alt="Video LTC Generator app screen in Running mode">
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <p class="eyebrow">SMPTE LTC from iPhone to camera</p>
+          <h1 id="hero-title">Video LTC Generator</h1>
+          <p class="hero-copy">
+            Generate linear timecode on the iPhone audio output and feed it to a camera,
+            recorder, or audio channel for frame-accurate sync in post.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="#workflow">View connection flow</a>
+            <a class="button secondary" href="mailto:info.promobilemedia@icloud.com">Contact support</a>
+          </div>
+          <dl class="hero-stats" aria-label="Key specifications">
+            <div>
+              <dt>Frame rates</dt>
+              <dd>23.98 / 24 / 25 / 29.97 DF / 29.97 / 30</dd>
+            </div>
+            <div>
+              <dt>Target level</dt>
+              <dd>-11...-12 dBFS</dd>
+            </div>
+            <div>
+              <dt>Output</dt>
+              <dd>LTC audio signal</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section intro-band" aria-label="Product purpose">
+        <div class="container intro-grid">
+          <div>
+            <p class="section-kicker">Purpose</p>
+            <h2>Stable camera timecode without a dedicated hardware generator.</h2>
+          </div>
+          <p>
+            Connect the phone to the camera with the appropriate audio cable and send LTC as a signal.
+            The camera or recorder can decode it as timecode, while post-production gets matching
+            timelines across multiple sources.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="workflow" aria-labelledby="workflow-title">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-kicker">Connection</p>
+            <h2 id="workflow-title">Phone -> cable -> camera -> synchronized footage</h2>
+          </div>
+
+          <div class="signal-flow" aria-label="Connection diagram">
+            <article class="flow-node">
+              <span class="node-label">01</span>
+              <h3>iPhone</h3>
+              <p>Video LTC Generator creates a continuous SMPTE LTC signal.</p>
+            </article>
+            <div class="flow-line" aria-hidden="true">
+              <span></span>
+            </div>
+            <article class="flow-node">
+              <span class="node-label">02</span>
+              <h3>Audio cable</h3>
+              <p>Use a USB-C/Lightning adapter, TRS/TRRS cable, or the camera's timecode input.</p>
+            </article>
+            <div class="flow-line" aria-hidden="true">
+              <span></span>
+            </div>
+            <article class="flow-node">
+              <span class="node-label">03</span>
+              <h3>Camera</h3>
+              <p>Record the signal through a timecode input or an audio channel for decoding.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark-band" id="ltc" aria-labelledby="ltc-title">
+        <div class="container two-column">
+          <div class="section-heading">
+            <p class="section-kicker">What is LTC</p>
+            <h2 id="ltc-title">LTC is timecode recorded as audio.</h2>
+            <p>
+              Linear Timecode looks like a fast digital audio signal to the recording chain.
+              It carries hours, minutes, seconds, frames, and format flags.
+            </p>
+          </div>
+
+          <div class="tc-visual" aria-label="LTC signal visualization">
+            <div class="scope-header">
+              <span>HH:MM:SS:FF</span>
+              <strong class="tc-live">09:46:02:23</strong>
+            </div>
+            <div class="wave" aria-hidden="true">
+              <span style="--i: 0; --h: 62px"></span>
+              <span style="--i: 1; --h: 118px"></span>
+              <span style="--i: 2; --h: 82px"></span>
+              <span style="--i: 3; --h: 146px"></span>
+              <span style="--i: 4; --h: 96px"></span>
+              <span style="--i: 5; --h: 134px"></span>
+              <span style="--i: 6; --h: 70px"></span>
+              <span style="--i: 7; --h: 158px"></span>
+              <span style="--i: 8; --h: 88px"></span>
+              <span style="--i: 9; --h: 126px"></span>
+              <span style="--i: 10; --h: 76px"></span>
+              <span style="--i: 11; --h: 148px"></span>
+              <span style="--i: 12; --h: 92px"></span>
+              <span style="--i: 13; --h: 138px"></span>
+              <span style="--i: 14; --h: 68px"></span>
+              <span style="--i: 15; --h: 152px"></span>
+            </div>
+            <p>
+              For reliable decoding, feed LTC as a clean mono/line signal without noise reduction,
+              limiting, or automatic gain correction.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="level-title">
+        <div class="container feature-grid">
+          <article class="feature-card level-card">
+            <p class="section-kicker">Audio level</p>
+            <h2 id="level-title">Recommended level: -11 to -12 dBFS</h2>
+            <p>
+              The goal is a signal that the camera can read confidently without clipping the input.
+              Set the phone output and camera input so the camera meter sits around -11 to -12 dBFS.
+            </p>
+            <div class="level-meter" aria-label="LTC level meter">
+              <span class="danger high">Too hot</span>
+              <span class="warn">Watch</span>
+              <span class="good">Target</span>
+              <span class="warn low">Weak</span>
+              <i class="target-line"></i>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <p class="section-kicker">Indicator</p>
+            <h2>What the indicator shows</h2>
+            <ul class="check-list">
+              <li><strong>White marker</strong> shows the current LTC output level.</li>
+              <li><strong>Green zone</strong> marks the recommended decoding range.</li>
+              <li><strong>Yellow zone</strong> warns that the level is near the edge.</li>
+              <li><strong>Red zone</strong> means the signal may drop out or overload the input.</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <p class="section-kicker">Lock</p>
+            <h2>Lock protects the take</h2>
+            <p>
+              When the interface is locked, an accidental touch cannot change the frame rate
+              or stop generation during a shoot.
+            </p>
+            <img class="inline-shot" src="assets/app-locked.png" alt="Video LTC Generator screen with interface lock enabled">
+          </article>
+        </div>
+      </section>
+
+      <section class="section dark-band" id="df" aria-labelledby="df-title">
+        <div class="container">
+          <div class="section-heading narrow">
+            <p class="section-kicker">Drop-frame vs non-drop</p>
+            <h2 id="df-title">DF does not drop real frames. It skips frame numbers.</h2>
+            <p>
+              At 29.97 fps, a non-drop counter slowly drifts away from clock time:
+              about 3.6 seconds per hour. Drop-frame compensates by skipping frame
+              numbers 00 and 01 at the start of most minutes.
+            </p>
+          </div>
+
+          <div class="df-diagram" aria-label="Drop-frame and non-drop timecode diagram">
+            <article>
+              <h3>29.97 NDF</h3>
+              <p>Counts every frame number in sequence. Useful when a simple frame count is expected.</p>
+              <div class="timeline" aria-hidden="true">
+                <span>00:59:28</span>
+                <span>00:59:29</span>
+                <span>01:00:00</span>
+                <span>01:00:01</span>
+                <span>01:00:02</span>
+              </div>
+            </article>
+            <article>
+              <h3>29.97 DF</h3>
+              <p>Skips selected numbers so timecode stays aligned with wall-clock time.</p>
+              <div class="timeline drop" aria-hidden="true">
+                <span>00:59;28</span>
+                <span>00:59;29</span>
+                <span class="skip">01:00;00</span>
+                <span class="skip">01:00;01</span>
+                <span>01:00;02</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="note-grid" aria-label="When to choose each format">
+            <div>
+              <strong>Choose DF</strong>
+              <p>for 29.97 fps when real-time duration matters: broadcast, long recordings, or delivery timing.</p>
+            </div>
+            <div>
+              <strong>Choose NDF</strong>
+              <p>when post-production expects normal frame numbering, or when working at 24, 25, or 30 fps.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section screenshot-section" aria-labelledby="product-title">
+        <div class="container product-grid">
+          <div class="section-heading">
+            <p class="section-kicker">Interface</p>
+            <h2 id="product-title">Large digits, quick fps selection, clear status.</h2>
+            <p>
+              The screen is built for set work: timecode is readable from a distance,
+              Running/Stop is always visible, and Lock keeps settings fixed.
+            </p>
+          </div>
+          <figure class="product-shot">
+            <img src="assets/app-running.png" alt="Video LTC Generator interface with 24 fps selected">
+            <figcaption>Running mode with output meter and frame-rate selector.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section faq-section" id="faq" aria-labelledby="faq-title">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-kicker">FAQ</p>
+            <h2 id="faq-title">Common questions</h2>
+          </div>
+
+          <div class="faq-grid">
+            <article class="faq-item">
+              <h3>How should I connect the phone to a camera?</h3>
+              <p>
+                Use the camera's dedicated timecode input when available. If the camera has no timecode input,
+                record LTC into an audio channel and decode it later in post.
+              </p>
+            </article>
+            <article class="faq-item">
+              <h3>What audio level should I aim for?</h3>
+              <p>
+                Set the output so the camera meter is close to -11 to -12 dBFS. A signal that is too hot can clip;
+                a signal that is too quiet may decode unreliably.
+              </p>
+            </article>
+            <article class="faq-item">
+              <h3>Does drop-frame remove video frames?</h3>
+              <p>
+                No. Drop-frame timecode only skips certain frame numbers at 29.97 fps. The recorded video frames
+                remain untouched.
+              </p>
+            </article>
+            <article class="faq-item">
+              <h3>Which frame rate should I choose?</h3>
+              <p>
+                Match the frame rate of the camera project. For 29.97, choose DF when you need clock-accurate
+                running time, and NDF when your workflow expects normal numbering.
+              </p>
+            </article>
+            <article class="faq-item">
+              <h3>Why is the interface lock useful?</h3>
+              <p>
+                Lock prevents accidental taps from changing settings or stopping LTC while the phone is mounted,
+                pocketed, or handled on set.
+              </p>
+            </article>
+            <article class="faq-item">
+              <h3>What should I check if LTC is not detected?</h3>
+              <p>
+                Confirm the cable path, disable automatic gain processing where possible, check the camera input mode,
+                and verify that the level sits near the recommended range.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section support-band" id="support" aria-labelledby="support-title">
+        <div class="container support-grid">
+          <div>
+            <p class="section-kicker">Support</p>
+            <h2 id="support-title">Questions? Send us a message.</h2>
+            <p>
+              If you have questions about using Video LTC Generator, compatibility, setup, or the information
+              on this page, contact us by email.
+            </p>
+          </div>
+          <address class="support-card">
+            <span>Support email</span>
+            <a href="mailto:info.promobilemedia@icloud.com">info.promobilemedia@icloud.com</a>
+          </address>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Video LTC Generator</span>
+      <a href="mailto:info.promobilemedia@icloud.com">info.promobilemedia@icloud.com</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
