@@ -273,16 +273,14 @@ p {
   color: #0d7b3d;
 }
 
-.intro-grid,
-.support-grid {
+.intro-grid {
   display: grid;
   grid-template-columns: minmax(280px, 0.9fr) minmax(320px, 1.1fr);
   gap: clamp(32px, 6vw, 86px);
   align-items: start;
 }
 
-.intro-grid h2,
-.support-grid h2 {
+.intro-grid h2 {
   color: #07100a;
 }
 
@@ -306,8 +304,7 @@ p {
 .feature-card,
 .df-diagram article,
 .faq-item,
-.tc-visual,
-.support-card {
+.tc-visual {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--panel);
@@ -663,29 +660,54 @@ p {
   font-size: 16px;
 }
 
-.support-card {
-  display: grid;
-  gap: 12px;
-  padding: clamp(26px, 4vw, 42px);
-  background: #07100a;
+.support-band {
+  padding-top: clamp(38px, 5vw, 64px);
+  padding-bottom: clamp(38px, 5vw, 64px);
 }
 
-.support-card span {
-  color: var(--muted);
-  font-size: 12px;
+.support-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.support-copy .section-kicker {
+  margin-bottom: 8px;
+}
+
+.support-copy h2 {
+  margin: 0;
+  color: #07100a;
+  font-size: clamp(28px, 3.2vw, 44px);
+}
+
+.support-contact {
+  display: grid;
+  gap: 6px;
+  min-width: min(100%, 340px);
   font-style: normal;
+}
+
+.support-contact span {
+  color: #5f6c62;
+  font-size: 12px;
   font-weight: 900;
   text-transform: uppercase;
 }
 
-.support-card a {
-  color: var(--green);
-  font-size: clamp(16px, 2vw, 22px);
-  font-style: normal;
-  font-weight: 800;
+.support-contact a {
+  color: #07100a;
+  font-size: 17px;
+  font-weight: 750;
   line-height: 1.35;
   overflow-wrap: anywhere;
   text-decoration: none;
+}
+
+.support-contact a:hover,
+.support-contact a:focus-visible {
+  color: #0d7b3d;
 }
 
 .site-footer {
@@ -699,11 +721,6 @@ p {
   color: var(--muted);
   font-size: 14px;
   font-weight: 750;
-}
-
-.site-footer a {
-  color: var(--text);
-  text-decoration: none;
 }
 
 @media (max-width: 980px) {
@@ -736,7 +753,6 @@ p {
 
   .hero-stats,
   .intro-grid,
-  .support-grid,
   .two-column,
   .product-grid,
   .df-diagram,
@@ -771,6 +787,11 @@ p {
 
   .feature-card {
     min-height: 0;
+  }
+
+  .support-strip {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 
